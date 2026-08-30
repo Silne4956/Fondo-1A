@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Fondo del Salón</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Fondo Salón">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#4A55E8">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234A55E8'/%3E%3Cstop offset='1' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3E$%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234A55E8'/%3E%3Cstop offset='1' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3E$%3C/text%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&display=swap');
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: #EEF1F9;
+  font-family: 'League Spartan', sans-serif;
+  color: #22283B;
+}
+
+.fs-app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #EEF1F9;
+  padding-bottom: 84px;
+  position: relative;
+}
+
+/* ---------- Header ---------- */
+.fs-header {
+  background: linear-gradient(135deg, #4A55E8 0%, #7B5CF0 55%, #B45CF0 100%);
+  padding: 20px 18px 22px;
+  border-radius: 0 0 28px 28px;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(74,85,232,0.25);
+}
+.fs-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.fs-app-title {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.15;
+}
+.fs-app-sub {
+  font-size: 12px;
+  opacity: 0.82;
+  margin-top: 2px;
+}
+.fs-icon-btn {
+  background: rgba(255,255,255,0.22);
+  border: none;
+  color: #fff;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.fs-icon-btn:active { background: rgba(255,255,255,0.35); }
+
+.fs-balance-label { font-size: 12px; opacity: 0.82; }
+.fs-balance-value {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  margin: 2px 0 14px;
+}
+.fs-split {
+  display: flex;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.14);
+}
+.fs-split-item {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 12px;
+}
+.fs-split-item.gastos { background: rgba(240,80,110,0.85); border-radius: 14px 0 0 14px; }
+.fs-split-item.ingresos { background: rgba(34,181,115,0.85); border-radius: 0 14px 14px 0; }
+.fs-split-item strong { display: block; font-size: 16px; margin-top: 2px; font-weight: 700; }
+
+/* ---------- Content ---------- */
+.fs-content { padding: 18px 16px 8px; }
+
+.fs-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(30,40,80,0.06);
+}
+.fs-card-title {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+/* Donut */
+.fs-donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 6px 0 4px;
+}
+.fs-donut {
+  width: 108px; height: 108px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.fs-donut::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  background: #fff;
+  border-radius: 50%;
+}
+.fs-donut-center { position: relative; text-align: center; z-index: 1; }
+.fs-donut-center .n { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 17px; display: block; }
+.fs-donut-center .l { font-size: 10px; color: #8A8FA3; }
+.fs-donut-legend { flex: 1; }
+.fs-legend-row { display: flex; align-items: center; gap: 8px; font-size: 12.5px; margin-bottom: 8px; color: #4B5170; }
+.fs-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.fs-legend-row strong { margin-left: auto; color: #22283B; }
+
+/* Stat rows (fondo mensual / papeleria) */
+.fs-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #F0F1F7;
+}
+.fs-stat-row:last-child { border-bottom: none; }
+.fs-crayon {
+  width: 42px; height: 42px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+.fs-stat-text { flex: 1; min-width: 0; }
+.fs-stat-label { font-size: 12.5px; color: #8A8FA3; }
+.fs-stat-value { font-weight: 700; font-size: 15.5px; }
+.fs-stat-bar {
+  height: 6px;
+  border-radius: 4px;
+  background: #F0F1F7;
+  margin-top: 6px;
+  overflow: hidden;
+}
+.fs-stat-bar-fill { height: 100%; border-radius: 4px; }
+
+/* Mini bar chart */
+.fs-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 110px;
+  padding: 6px 2px 0;
+}
+.fs-chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.fs-chart-bars { display: flex; align-items: flex-end; gap: 3px; height: 100%; }
+.fs-chart-bar { width: 14px; border-radius: 5px 5px 2px 2px; min-height: 3px; }
+.fs-chart-bar.income { background: linear-gradient(180deg,#34D399,#22B573); }
+.fs-chart-bar.expense { background: linear-gradient(180deg,#FB7185,#F0506E); }
+.fs-chart-label { font-size: 10px; color: #8A8FA3; margin-top: 6px; text-align: center; text-transform: capitalize; }
+.fs-chart-legend { display: flex; gap: 16px; font-size: 11.5px; color: #8A8FA3; margin-top: 12px; justify-content: center; }
+.fs-chart-legend span { display: inline-flex; align-items: center; gap: 5px; }
+
+/* Settings row */
+.fs-settings-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; }
+.fs-settings-row label { font-size: 13.5px; color: #4B5170; font-weight: 500; }
+.fs-settings-row input {
+  width: 84px; text-align: right;
+  border: 1.5px solid #EDEEF5; border-radius: 10px;
+  padding: 7px 10px; font-size: 14px; font-weight: 600;
+  font-family: 'League Spartan', sans-serif; color: #22283B;
+}
+.fs-export-full {
+  width: 100%;
+  background: linear-gradient(135deg,#4A55E8,#8B5CF6);
+  color: #fff; border: none; border-radius: 12px;
+  padding: 12px; font-size: 14px; font-weight: 700;
+  cursor: pointer; margin-top: 6px;
+}
+
+/* Month nav pill */
+.fs-month-nav {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  background: #F5F6FB; border-radius: 12px; padding: 8px 10px; margin-bottom: 14px;
+}
+.fs-month-nav button {
+  border: none; background: #fff; width: 28px; height: 28px; border-radius: 8px;
+  font-size: 15px; cursor: pointer; color: #4A55E8; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.fs-month-label { font-weight: 700; font-size: 13.5px; text-transform: capitalize; min-width: 110px; text-align: center; }
+
+/* Person / expense list rows */
+.fs-list-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 0; border-bottom: 1px solid #F0F1F7;
+}
+.fs-list-row:last-child { border-bottom: none; }
+.fs-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; color: #fff; flex-shrink: 0;
+}
+.fs-row-main { flex: 1; min-width: 0; }
+.fs-row-name {
+  background: none; border: none; padding: 0; font: inherit; font-weight: 600;
+  font-size: 13.8px; color: #22283B; text-align: left; cursor: pointer; width: 100%;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.fs-row-sub { font-size: 11.5px; color: #8A8FA3; margin-top: 1px; }
+.fs-row-amt {
+  width: 64px; text-align: right; border: 1.5px solid #EDEEF5; border-radius: 9px;
+  padding: 6px 8px; font-size: 13px; font-family: 'League Spartan', sans-serif; font-weight: 600; color: #22283B;
+}
+.fs-row-amt:disabled { color: #C3C6D6; background: #FAFAFC; }
+.fs-toggle {
+  width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid #E2E4F0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: #fff; cursor: pointer; flex-shrink: 0;
+  background: #fff;
+}
+.fs-toggle.paid { border-color: transparent; }
+.fs-del-x { background: none; border: none; color: #F0506E; font-size: 15px; opacity: 0.55; cursor: pointer; flex-shrink: 0; }
+.fs-del-x:active { opacity: 1; }
+
+.fs-add-form {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;
+  padding-top: 14px; border-top: 1px dashed #E2E4F0;
+}
+.fs-add-form input, .fs-add-form select {
+  border: 1.5px solid #EDEEF5; border-radius: 10px; padding: 9px 11px;
+  font-size: 13px; font-family: 'League Spartan', sans-serif; background: #fff;
+}
+.fs-add-form input[type=text] { flex: 1; min-width: 100px; }
+.fs-add-btn {
+  background: linear-gradient(135deg,#4A55E8,#8B5CF6); color: #fff; border: none;
+  border-radius: 10px; padding: 9px 16px; font-size: 13px; font-weight: 700; cursor: pointer; width: 100%;
+}
+
+.fs-cat-pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 700;
+}
+.fs-fund-pill {
+  display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 10.5px; font-weight: 700;
+}
+.fs-fund-pill.monthly { background: #DCEEFD; color: #1D6FBF; }
+.fs-fund-pill.papeleria { background: #EDE4FD; color: #6B3FC9; }
+
+.fs-empty-msg { color: #8A8FA3; font-size: 13px; text-align: center; padding: 18px 4px; }
+
+.fs-progress-summary { font-size: 12.5px; color: #8A8FA3; margin-bottom: 12px; }
+.fs-progress-summary strong { color: #22283B; }
+
+/* Bottom nav */
+.fs-bottomnav {
+  position: fixed;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #fff;
+  display: flex;
+  box-shadow: 0 -4px 20px rgba(30,40,80,0.10);
+  border-radius: 22px 22px 0 0;
+  padding: 10px 6px calc(10px + env(safe-area-inset-bottom));
+  z-index: 500;
+}
+.fs-nav-btn {
+  flex: 1; background: none; border: none; display: flex; flex-direction: column;
+  align-items: center; gap: 3px; padding: 4px 2px; cursor: pointer; color: #B0B4C8;
+  font-family: 'League Spartan', sans-serif;
+}
+.fs-nav-btn .ic { font-size: 19px; }
+.fs-nav-btn .lb { font-size: 10px; font-weight: 600; }
+.fs-nav-btn.active { color: #4A55E8; }
+
+/* Modal */
+.fs-modal-overlay {
+  position: fixed; inset: 0; background: rgba(34,40,80,0.5);
+  display: flex; align-items: flex-end; justify-content: center; z-index: 1000;
+}
+.fs-modal {
+  background: #fff; width: 100%; max-width: 480px; border-radius: 22px 22px 0 0;
+  padding: 20px 20px 30px; max-height: 82vh; overflow-y: auto;
+}
+.fs-modal-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+.fs-modal-title { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 18px; }
+.fs-modal-sub { font-size: 12.5px; color: #8A8FA3; margin-top: 2px; }
+.fs-modal-close { background: #F0F1F7; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 15px; cursor: pointer; }
+.fs-hist-section-label { font-size: 12px; font-weight: 700; color: #8A8FA3; text-transform: uppercase; letter-spacing: 0.04em; margin: 14px 0 6px; }
+.fs-hist-row { display: flex; justify-content: space-between; padding: 8px 2px; border-bottom: 1px solid #F0F1F7; font-size: 13.5px; }
+.fs-hist-total { display: flex; justify-content: space-between; font-weight: 700; padding: 12px 2px 0; margin-top: 6px; border-top: 2px solid #F0F1F7; font-family: 'League Spartan', sans-serif; font-size: 16px; }
+
+.fs-footnote { font-size: 10.5px; color: #A9ADC2; text-align: center; margin-top: 6px; }
+
+.fs-loading { text-align: center; padding: 80px 20px; color: #8A8FA3; font-size: 14px; }
+
+.fs-role-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.fs-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4A55E8 0%, #7B5CF0 55%, #B45CF0 100%);
+  padding: 24px;
+}
+.fs-gate-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+.fs-gate-icon { font-size: 40px; margin-bottom: 8px; }
+.fs-gate-title { font-weight: 800; font-size: 21px; color: #22283B; }
+.fs-gate-sub { font-size: 13px; color: #8A8FA3; margin: 6px 0 24px; }
+.fs-gate-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  border: 1.5px solid #EDEEF5;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.fs-gate-btn .ic { font-size: 24px; }
+.fs-gate-btn strong { font-size: 14px; color: #22283B; }
+.fs-gate-btn .sub { font-size: 11.5px; color: #8A8FA3; font-weight: 400; }
+.fs-gate-btn.admin:active, .fs-gate-btn.user:active { background: #F5F6FB; }
+.fs-gate-pass-form { text-align: left; }
+.fs-gate-label { font-size: 12.5px; font-weight: 600; color: #4B5170; display: block; margin-bottom: 6px; }
+.fs-gate-pass-form input {
+  width: 100%;
+  border: 1.5px solid #EDEEF5;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-family: 'League Spartan', sans-serif;
+}
+.fs-gate-error { color: #F0506E; font-size: 12.5px; margin-bottom: 10px; }
+.fs-gate-back {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #8A8FA3;
+  font-size: 13px;
+  margin-top: 8px;
+  cursor: pointer;
+  font-family: 'League Spartan', sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div id="fsRoot">
+  <div class="fs-loading">Abriendo el cuaderno de cuentas…</div>
+</div>
+
+<script>
+window.addEventListener('error', function(e) {
+  var el = document.getElementById('fsRoot');
+  if (el) {
+    el.innerHTML = '<div style="padding:24px; font-family:monospace; font-size:13px; color:#900; background:#fee; border:2px solid #c00; margin:16px; border-radius:10px; white-space:pre-wrap;">' +
+      '⚠️ Error en la app:\n\n' + (e.message || 'desconocido') + '\n\nLínea: ' + (e.lineno || '?') + '\n\nManda una captura de esta pantalla.' +
+      '</div>';
+  }
+});
+(function() {
+  const STORAGE_KEY = 'fondo-salon-datos';
+  const root = document.getElementById('fsRoot');
+  const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+  let data = {
+    monthlyFee: 100,
+    students: [
+      { id: 's01', name: 'Aguirre Sánchez Osiel' },
+      { id: 's02', name: 'Ávila Martínez Alison Monserrat' },
+      { id: 's03', name: 'Carrillo Lobato Darío Leonardo' },
+      { id: 's04', name: 'Carrillo Ramos Lecxa' },
+      { id: 's05', name: 'Delgado Ramos Regina' },
+      { id: 's06', name: 'Dozal Vargas Aarón Antonio' },
+      { id: 's07', name: 'Galván Rivera Ivanna Alejandría' },
+      { id: 's08', name: 'Gaytán Molina Madison' },
+      { id: 's09', name: 'Guereca Gómez Josue Darell' },
+      { id: 's10', name: 'Guerrero Bojorge Itzuri Elizabeth' },
+      { id: 's11', name: 'Gutiérrez López Lissandro Aleksey' },
+      { id: 's12', name: 'Gómez Herrera Ilán Aldair' },
+      { id: 's13', name: 'Hernández Gómez Narda Nahomy' },
+      { id: 's14', name: 'Hernández Ponce Miranda Kristal' },
+      { id: 's15', name: 'Igno García Corina Dayleza' },
+      { id: 's16', name: 'Lozoya Maximiliano' },
+      { id: 's17', name: 'Lugo Piña Juan Antonio' },
+      { id: 's18', name: 'Luna Garza Valeria Alejandra' },
+      { id: 's19', name: 'Martínez Velázquez Jonathan' },
+      { id: 's20', name: 'Medina Aldabar David Alberto' },
+      { id: 's21', name: 'Morales Montoya América Victoria' },
+      { id: 's22', name: 'Muro Barbosa Paulina Guadalupe' },
+      { id: 's23', name: 'Nieto Guerra Sebastián' },
+      { id: 's24', name: 'Padilla Martínez Rosario' },
+      { id: 's25', name: 'Pardo Jimenez Edgar Homero' },
+      { id: 's26', name: 'Rodríguez Dávila Jessica Geovanna' },
+      { id: 's27', name: 'Rodríguez Hernández Adileny' },
+      { id: 's28', name: 'Rojas Hernández Danna' },
+      { id: 's29', name: 'Rueda Castañeda Zaid Manuel' },
+      { id: 's30', name: 'Soriano Tinoco Rebecca' },
+      { id: 's31', name: 'Sánchez Herrera Alejandro Gabriel' },
+      { id: 's32', name: 'Venegas Hernández Blanca Elizabeth' },
+      { id: 's33', name: 'Villalpando González Maximiliano' },
+      { id: 's34', name: 'Zamora Ramos Saired Victoria' },
+      { id: 's35', name: 'Obba Kailani Reyna Sias' }
+    ],
+    payments: {},
+    expenses: [],
+    papeleria: { fee: 450, paid: {} },
+    adminPassword: '1A2026'
+  };
+
+  let currentMonth = new Date();
+  currentMonth.setDate(1);
+  let historyStudentId = null;
+  let currentTab = 'resumen';
+  let currentRole = null; // 'admin' | 'usuario' | null (sin elegir)
+  let loginError = '';
+
+  const CATEGORIES = ['Materiales', 'Eventos/Fiesta', 'Decoración', 'Refrigerios', 'Regalos', 'Otro'];
+  const CAT_META = {
+    'Materiales':      { bg: '#DCEEFD', fg: '#1D6FBF', icon: '📚' },
+    'Eventos/Fiesta':  { bg: '#FCEBD0', fg: '#B4780C', icon: '🎉' },
+    'Decoración':      { bg: '#EDE4FD', fg: '#6B3FC9', icon: '🎈' },
+    'Refrigerios':     { bg: '#FFE7D6', fg: '#C15A1E', icon: '🍪' },
+    'Regalos':         { bg: '#FDE0E8', fg: '#C23A63', icon: '🎁' },
+    'Otro':            { bg: '#E6E8F0', fg: '#5B6180', icon: '📦' }
+  };
+  function catMeta(cat) { return CAT_META[cat] || CAT_META['Otro']; }
+
+  const AVATAR_COLORS = ['#4A55E8','#F0506E','#22B573','#F5A623','#8B5CF6','#3B9EF5','#FF8A3D','#EC4899'];
+  function avatarColor(id) {
+    let h = 0;
+    for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % AVATAR_COLORS.length;
+    return AVATAR_COLORS[Math.abs(h) % AVATAR_COLORS.length];
+  }
+  function initials(name) {
+    const parts = name.trim().split(/\s+/);
+    return ((parts[0]||'')[0] || '') .toUpperCase();
+  }
+
+  function monthKey(d) { return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'); }
+  function monthLabel(d) { return MESES[d.getMonth()] + ' ' + d.getFullYear(); }
+  function uid() { return Math.random().toString(36).slice(2,10) + Date.now().toString(36); }
+  function fmtMoney(n) {
+    return '$' + (Math.round(n * 100) / 100).toLocaleString('es-MX', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  }
+
+  const FIREBASE_URL = 'https://fondo-salon-1a-default-rtdb.firebaseio.com/';
+  const DATA_ENDPOINT = FIREBASE_URL + 'salonData.json';
+  let syncStatus = 'connecting'; // 'connecting' | 'synced' | 'offline'
+
+  // Firebase borra las listas/objetos vacíos al guardarlos (p.ej. "paid: {}" desaparece).
+  // Esta función rellena cualquier pieza que falte para que la app nunca se rompa.
+  function normalizeData() {
+    if (!data.payments || typeof data.payments !== 'object') data.payments = {};
+    if (!Array.isArray(data.expenses)) data.expenses = [];
+    if (!Array.isArray(data.students)) data.students = [];
+    if (!data.papeleria || typeof data.papeleria !== 'object') data.papeleria = {};
+    if (data.papeleria.fee === undefined || data.papeleria.fee === null) data.papeleria.fee = 450;
+    if (!data.papeleria.paid || typeof data.papeleria.paid !== 'object') data.papeleria.paid = {};
+    if (data.monthlyFee === undefined || data.monthlyFee === null) data.monthlyFee = 100;
+    if (!data.adminPassword) data.adminPassword = '1A2026';
+  }
+
+  async function loadData() {
+    // 1) Carga instantánea desde la copia local (por si no hay internet)
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) data = Object.assign(data, JSON.parse(raw));
+    } catch (e) { /* sin copia local todavía */ }
+    normalizeData();
+    render();
+
+    // 2) Trae la versión más reciente de la nube (compartida entre dispositivos)
+    try {
+      const res = await fetch(DATA_ENDPOINT);
+      if (res.ok) {
+        const cloud = await res.json();
+        if (cloud) {
+          data = Object.assign({}, data, cloud);
+          normalizeData();
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+        } else {
+          // La nube está vacía todavía: sube los datos actuales como punto de partida compartido
+          await fetch(DATA_ENDPOINT, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        }
+        syncStatus = 'synced';
+      } else {
+        syncStatus = 'offline';
+      }
+    } catch (e) {
+      syncStatus = 'offline';
+      console.error('No se pudo conectar con la nube, usando datos guardados en este dispositivo', e);
+    }
+    render();
+    startSyncPolling();
+  }
+
+  async function saveData() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+    try {
+      await fetch(DATA_ENDPOINT, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      syncStatus = 'synced';
+    } catch (e) {
+      syncStatus = 'offline';
+      console.error('No se pudo guardar en la nube (sin internet). Se guardó solo en este dispositivo.', e);
+    }
+  }
+
+  function startSyncPolling() {
+    setInterval(refreshFromCloud, 15000);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) refreshFromCloud();
+    });
+  }
+
+  async function refreshFromCloud() {
+    if (!currentRole) return;
+    const active = document.activeElement;
+    const isTyping = active && (active.tagName === 'INPUT' || active.tagName === 'SELECT');
+    if (isTyping) return;
+    try {
+      const res = await fetch(DATA_ENDPOINT);
+      if (!res.ok) { syncStatus = 'offline'; return; }
+      const cloud = await res.json();
+      syncStatus = 'synced';
+      if (cloud && JSON.stringify(cloud) !== JSON.stringify(data)) {
+        data = Object.assign({}, data, cloud);
+        normalizeData();
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+        render();
+      }
+    } catch (e) {
+      syncStatus = 'offline';
+    }
+  }
+
+  function totalsForMonth(mKey) {
+    let income = 0;
+    data.students.forEach(s => {
+      const p = data.payments[s.id] && data.payments[s.id][mKey];
+      if (p) income += Number(p);
+    });
+    let expense = 0;
+    data.expenses.forEach(e => { if (e.date && e.date.slice(0,7) === mKey) expense += Number(e.amount); });
+    return { income, expense };
+  }
+
+  function expenseFund(e) { return e.fund === 'papeleria' ? 'papeleria' : 'monthly'; }
+
+  function fundTotals() {
+    let monthlyIncome = 0;
+    Object.values(data.payments).forEach(months => { Object.values(months).forEach(v => monthlyIncome += Number(v)); });
+    const papeleriaIncome = Object.values(data.papeleria.paid).reduce((a,b) => a + Number(b), 0);
+    let monthlyExpense = 0, papeleriaExpense = 0;
+    data.expenses.forEach(e => {
+      if (expenseFund(e) === 'papeleria') papeleriaExpense += Number(e.amount);
+      else monthlyExpense += Number(e.amount);
+    });
+    return {
+      monthlyIncome, papeleriaIncome, monthlyExpense, papeleriaExpense,
+      monthlyBalance: monthlyIncome - monthlyExpense,
+      papeleriaBalance: papeleriaIncome - papeleriaExpense
+    };
+  }
+
+  function papeleriaTotals() {
+    const paidValues = Object.values(data.papeleria.paid);
+    const collected = paidValues.reduce((a,b) => a + Number(b), 0);
+    return { collected, paidCount: paidValues.length, expected: data.students.length * data.papeleria.fee };
+  }
+
+  function csvEscape(v) {
+    const s = String(v === undefined || v === null ? '' : v);
+    if (s.includes(',') || s.includes('"') || s.includes('\n')) return '"' + s.replace(/"/g, '""') + '"';
+    return s;
+  }
+
+  function exportToExcel() {
+    const lines = [];
+    lines.push('Fondo del Salón - Primero de Primaria');
+    lines.push('');
+    lines.push('PAGOS DE ALUMNOS');
+    lines.push(['Alumno', 'Mes', 'Monto pagado'].map(csvEscape).join(','));
+    data.students.forEach(s => {
+      const months = data.payments[s.id] || {};
+      Object.keys(months).sort().forEach(mk => lines.push([s.name, mk, months[mk]].map(csvEscape).join(',')));
+    });
+    lines.push('');
+    lines.push('COOPERACIÓN DE PAPELERÍA (pago único)');
+    lines.push(['Alumno', 'Pagó', 'Monto'].map(csvEscape).join(','));
+    data.students.forEach(s => {
+      const amt = data.papeleria.paid[s.id];
+      lines.push([s.name, amt !== undefined ? 'Sí' : 'No', amt !== undefined ? amt : ''].map(csvEscape).join(','));
+    });
+    lines.push('');
+    lines.push('GASTOS');
+    lines.push(['Fecha', 'Concepto', 'Categoría', 'Fondo', 'Monto'].map(csvEscape).join(','));
+    [...data.expenses].sort((a,b) => (a.date||'').localeCompare(b.date||'')).forEach(e => {
+      const fundLabel = expenseFund(e) === 'papeleria' ? 'Papelería' : 'Mensual';
+      lines.push([e.date || '', e.desc, e.category || 'Otro', fundLabel, e.amount].map(csvEscape).join(','));
+    });
+    lines.push('');
+    const fTotals = fundTotals();
+    lines.push('RESUMEN POR FONDO');
+    lines.push(['Saldo fondo mensual', fTotals.monthlyBalance].map(csvEscape).join(','));
+    lines.push(['Saldo fondo papelería', fTotals.papeleriaBalance].map(csvEscape).join(','));
+    lines.push(['Saldo total combinado', fTotals.monthlyBalance + fTotals.papeleriaBalance].map(csvEscape).join(','));
+
+    const csv = '\uFEFF' + lines.join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'fondo_salon_' + new Date().toISOString().slice(0,10) + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function renderChart() {
+    const months = [];
+    const base = new Date(); base.setDate(1);
+    for (let i = 5; i >= 0; i--) months.push(new Date(base.getFullYear(), base.getMonth() - i, 1));
+    const stats = months.map(d => ({ d, ...totalsForMonth(monthKey(d)) }));
+    const max = Math.max(1, ...stats.map(s => Math.max(s.income, s.expense)));
+    const cols = stats.map(s => {
+      const incH = Math.max(3, Math.round((s.income / max) * 100));
+      const expH = Math.max(3, Math.round((s.expense / max) * 100));
+      return `<div class="fs-chart-col">
+        <div class="fs-chart-bars" style="height:100px;">
+          <div class="fs-chart-bar income" style="height:${incH}px;" title="Ingresos: ${fmtMoney(s.income)}"></div>
+          <div class="fs-chart-bar expense" style="height:${expH}px;" title="Gastos: ${fmtMoney(s.expense)}"></div>
+        </div>
+        <div class="fs-chart-label">${MESES[s.d.getMonth()].slice(0,3)}</div>
+      </div>`;
+    }).join('');
+    return `<div class="fs-chart">${cols}</div>
+      <div class="fs-chart-legend">
+        <span><span class="fs-legend-dot" style="background:#22B573;"></span>Ingresos</span>
+        <span><span class="fs-legend-dot" style="background:#F0506E;"></span>Gastos</span>
+      </div>`;
+  }
+
+  function isAdmin() { return currentRole === 'admin'; }
+
+  function renderGate() {
+    const showPasswordForm = renderGate._showPassword;
+    return `
+      <div class="fs-gate">
+        <div class="fs-gate-card">
+          <div class="fs-gate-icon">🔐</div>
+          <div class="fs-gate-title">Fondo del Salón</div>
+          <div class="fs-gate-sub">Primero de primaria · elige cómo quieres entrar</div>
+
+          ${showPasswordForm ? `
+            <div class="fs-gate-pass-form">
+              <label class="fs-gate-label">Contraseña de administrador</label>
+              <input type="password" id="gatePasswordInput" placeholder="Contraseña" autofocus>
+              ${loginError ? `<div class="fs-gate-error">${escapeHtml(loginError)}</div>` : ''}
+              <button class="fs-add-btn" id="gatePasswordSubmit">Entrar como administrador</button>
+              <button class="fs-gate-back" id="gateBack">‹ Volver</button>
+            </div>
+          ` : `
+            <button class="fs-gate-btn admin" id="gateAdminBtn">
+              <span class="ic">🔑</span>
+              <span><strong>Administrador</strong><br><span class="sub">Puede editar todo</span></span>
+            </button>
+            <button class="fs-gate-btn user" id="gateUserBtn">
+              <span class="ic">👁</span>
+              <span><strong>Modo consulta</strong><br><span class="sub">Solo puede ver la información</span></span>
+            </button>
+          `}
+        </div>
+      </div>`;
+  }
+
+  function attachGateHandlers() {
+    const adminBtn = document.getElementById('gateAdminBtn');
+    if (adminBtn) adminBtn.onclick = () => { renderGate._showPassword = true; loginError = ''; render(); };
+    const userBtn = document.getElementById('gateUserBtn');
+    if (userBtn) userBtn.onclick = () => { currentRole = 'usuario'; render(); };
+    const backBtn = document.getElementById('gateBack');
+    if (backBtn) backBtn.onclick = () => { renderGate._showPassword = false; loginError = ''; render(); };
+    const submitBtn = document.getElementById('gatePasswordSubmit');
+    const pwInput = document.getElementById('gatePasswordInput');
+    const trySubmit = () => {
+      const val = pwInput.value;
+      if (val === data.adminPassword) {
+        currentRole = 'admin';
+        renderGate._showPassword = false;
+        loginError = '';
+        render();
+      } else {
+        loginError = 'Contraseña incorrecta.';
+        render();
+      }
+    };
+    if (submitBtn) submitBtn.onclick = trySubmit;
+    if (pwInput) pwInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') trySubmit(); });
+  }
+
+  function render() {
+    if (!currentRole) {
+      root.innerHTML = renderGate();
+      attachGateHandlers();
+      return;
+    }
+
+    const mKey = monthKey(currentMonth);
+    const monthTotals = totalsForMonth(mKey);
+    const fTotals = fundTotals();
+    const papTotals = papeleriaTotals();
+    const combinedBalance = fTotals.monthlyBalance + fTotals.papeleriaBalance;
+
+    const headerHtml = `
+      <div class="fs-header">
+        <div class="fs-header-top">
+          <div>
+            <div class="fs-app-title">Fondo del Salón</div>
+            <div class="fs-app-sub">Primero de primaria</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="fs-role-badge">${isAdmin() ? '🔑 Admin' : '👁 Consulta'}</span>
+            <button class="fs-icon-btn" id="exportBtnTop" title="Exportar a Excel">⬇</button>
+            <button class="fs-icon-btn" id="logoutBtn" title="Cambiar de rol">↩</button>
+          </div>
+        </div>
+        <div class="fs-balance-label">Saldo total combinado</div>
+        <div class="fs-balance-value">${fmtMoney(combinedBalance)}</div>
+        <div class="fs-split">
+          <div class="fs-split-item gastos"><span>Gastos (${monthLabel(currentMonth)})</span><strong>${fmtMoney(monthTotals.expense)}</strong></div>
+          <div class="fs-split-item ingresos"><span>Ingresos (${monthLabel(currentMonth)})</span><strong>${fmtMoney(monthTotals.income)}</strong></div>
+        </div>
+      </div>`;
+
+    let tabHtml = '';
+    if (currentTab === 'resumen') tabHtml = renderResumenTab(monthTotals, fTotals, papTotals);
+    else if (currentTab === 'alumnos') tabHtml = renderAlumnosTab(mKey);
+    else if (currentTab === 'papeleria') tabHtml = renderPapeleriaTab(papTotals);
+    else if (currentTab === 'gastos') tabHtml = renderGastosTab();
+
+    const navHtml = `
+      <div class="fs-bottomnav">
+        <button class="fs-nav-btn ${currentTab==='resumen'?'active':''}" data-tab="resumen"><span class="ic">🏠</span><span class="lb">Resumen</span></button>
+        <button class="fs-nav-btn ${currentTab==='alumnos'?'active':''}" data-tab="alumnos"><span class="ic">🧒</span><span class="lb">Alumnos</span></button>
+        <button class="fs-nav-btn ${currentTab==='papeleria'?'active':''}" data-tab="papeleria"><span class="ic">🎒</span><span class="lb">Papelería</span></button>
+        <button class="fs-nav-btn ${currentTab==='gastos'?'active':''}" data-tab="gastos"><span class="ic">💸</span><span class="lb">Gastos</span></button>
+      </div>`;
+
+    root.innerHTML = `
+      <div class="fs-app">
+        ${headerHtml}
+        <div class="fs-content">${tabHtml}</div>
+        ${navHtml}
+      </div>
+      ${renderHistoryModal()}
+    `;
+
+    attachHandlers(mKey);
+  }
+
+  function renderResumenTab(monthTotals, fTotals, papTotals) {
+    const total = monthTotals.income + monthTotals.expense;
+    const expensePct = total > 0 ? Math.round((monthTotals.expense / total) * 100) : 0;
+    const donutBg = `conic-gradient(#F0506E 0% ${expensePct}%, #22B573 ${expensePct}% 100%)`;
+
+    const monthlyPct = fTotals.monthlyIncome > 0 ? Math.max(0, Math.min(100, Math.round((fTotals.monthlyBalance / fTotals.monthlyIncome) * 100))) : 0;
+    const papPct = fTotals.papeleriaIncome > 0 ? Math.max(0, Math.min(100, Math.round((fTotals.papeleriaBalance / fTotals.papeleriaIncome) * 100))) : 0;
+
+    return `
+      <div class="fs-card">
+        <div class="fs-card-title">📊 Este mes</div>
+        <div class="fs-donut-wrap">
+          <div class="fs-donut" style="background:${donutBg};">
+            <div class="fs-donut-center"><span class="n">${fmtMoney(monthTotals.expense)}</span><span class="l">gastado</span></div>
+          </div>
+          <div class="fs-donut-legend">
+            <div class="fs-legend-row"><span class="fs-legend-dot" style="background:#F0506E;"></span>Gastos<strong>${fmtMoney(monthTotals.expense)}</strong></div>
+            <div class="fs-legend-row"><span class="fs-legend-dot" style="background:#22B573;"></span>Ingresos<strong>${fmtMoney(monthTotals.income)}</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-card">
+        <div class="fs-card-title">💰 Tus fondos</div>
+        <div class="fs-stat-row">
+          <div class="fs-crayon" style="background:#DCEEFD;">💵</div>
+          <div class="fs-stat-text">
+            <div class="fs-stat-label">Fondo mensual</div>
+            <div class="fs-stat-value">${fmtMoney(fTotals.monthlyBalance)}</div>
+            <div class="fs-stat-bar"><div class="fs-stat-bar-fill" style="width:${monthlyPct}%; background:#3B9EF5;"></div></div>
+          </div>
+        </div>
+        <div class="fs-stat-row">
+          <div class="fs-crayon" style="background:#EDE4FD;">🎒</div>
+          <div class="fs-stat-text">
+            <div class="fs-stat-label">Fondo papelería</div>
+            <div class="fs-stat-value">${fmtMoney(fTotals.papeleriaBalance)}</div>
+            <div class="fs-stat-bar"><div class="fs-stat-bar-fill" style="width:${papPct}%; background:#8B5CF6;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-card">
+        <div class="fs-card-title">📈 Historial mensual</div>
+        ${renderChart()}
+      </div>
+
+      ${isAdmin() ? `
+      <div class="fs-card">
+        <div class="fs-card-title">⚙️ Configuración</div>
+        <div class="fs-settings-row">
+          <label>Cuota mensual</label>
+          <input type="number" id="feeInput" value="${data.monthlyFee}" min="0" step="0.01">
+        </div>
+        <div class="fs-settings-row">
+          <label>Cuota papelería</label>
+          <input type="number" id="papFeeInput" value="${data.papeleria.fee}" min="0" step="0.01">
+        </div>
+        <div class="fs-settings-row">
+          <label>Contraseña admin</label>
+          <input type="password" id="adminPassInput" value="${escapeHtml(data.adminPassword)}">
+        </div>
+        <button class="fs-export-full" id="exportBtn">⬇ Exportar a Excel</button>
+      </div>
+      ` : `
+      <div class="fs-card">
+        <div class="fs-card-title">⚙️ Configuración</div>
+        <div class="fs-settings-row"><label>Cuota mensual</label><strong>${fmtMoney(data.monthlyFee)}</strong></div>
+        <div class="fs-settings-row"><label>Cuota papelería</label><strong>${fmtMoney(data.papeleria.fee)}</strong></div>
+        <button class="fs-export-full" id="exportBtn">⬇ Exportar a Excel</button>
+      </div>
+      `}
+
+      <div class="fs-footnote">${syncStatus === 'offline' ? '⚠️ Sin conexión: viendo la última copia guardada en este dispositivo.' : '☁️ Sincronizado — todos los dispositivos ven la misma información.'}</div>
+    `;
+  }
+
+  function renderAlumnosTab(mKey) {
+    let rows = '';
+    if (data.students.length === 0) {
+      rows = '<div class="fs-empty-msg">Aún no agregas alumnos.</div>';
+    } else {
+      data.students.forEach(s => {
+        const paidAmt = (data.payments[s.id] && data.payments[s.id][mKey]) || '';
+        const isPaid = paidAmt !== '' && paidAmt !== undefined && paidAmt !== null;
+        const color = avatarColor(s.id);
+        const admin = isAdmin();
+        rows += `
+          <div class="fs-list-row">
+            <div class="fs-avatar" style="background:${color};">${initials(s.name)}</div>
+            <div class="fs-row-main">
+              <button class="fs-row-name" data-history="${s.id}">${escapeHtml(s.name)}</button>
+              <div class="fs-row-sub">${isPaid ? 'Pagó este mes' : 'Pendiente'}</div>
+            </div>
+            ${admin ? `
+              <input type="number" class="fs-row-amt" data-amount="${s.id}" value="${isPaid ? paidAmt : ''}" placeholder="${data.monthlyFee}" ${isPaid ? '' : 'disabled'} min="0" step="0.01">
+              <span class="fs-toggle ${isPaid ? 'paid' : ''}" style="${isPaid ? 'background:#22B573;' : ''}" data-toggle="${s.id}">${isPaid ? '✓' : ''}</span>
+              <button class="fs-del-x" data-del-student="${s.id}" title="Eliminar">✕</button>
+            ` : `
+              <div style="font-weight:700; font-size:13.5px; min-width:60px; text-align:right;">${isPaid ? fmtMoney(paidAmt) : '—'}</div>
+              <span class="fs-toggle ${isPaid ? 'paid' : ''}" style="${isPaid ? 'background:#22B573;' : ''} cursor:default;">${isPaid ? '✓' : ''}</span>
+            `}
+          </div>`;
+      });
+    }
+    return `
+      <div class="fs-card">
+        <div class="fs-month-nav">
+          <button id="prevMonth">‹</button>
+          <span class="fs-month-label">${monthLabel(currentMonth)}</span>
+          <button id="nextMonth">›</button>
+        </div>
+        ${rows}
+        ${isAdmin() ? `
+        <div class="fs-add-form">
+          <input type="text" id="newStudentName" placeholder="Nombre del alumno">
+          <button class="fs-add-btn" id="addStudentBtn">Agregar alumno</button>
+        </div>
+        ` : ''}
+      </div>`;
+  }
+
+  function renderPapeleriaTab(papTotals) {
+    let rows = '';
+    if (data.students.length === 0) {
+      rows = '<div class="fs-empty-msg">Agrega alumnos para registrar su cooperación.</div>';
+    } else {
+      data.students.forEach(s => {
+        const paidAmt = data.papeleria.paid[s.id];
+        const isPaid = paidAmt !== undefined && paidAmt !== null;
+        const color = avatarColor(s.id);
+        const admin = isAdmin();
+        rows += `
+          <div class="fs-list-row">
+            <div class="fs-avatar" style="background:${color};">${initials(s.name)}</div>
+            <div class="fs-row-main">
+              <button class="fs-row-name" data-history="${s.id}">${escapeHtml(s.name)}</button>
+              <div class="fs-row-sub">${isPaid ? 'Cooperó' : 'Pendiente'}</div>
+            </div>
+            ${admin ? `
+              <input type="number" class="fs-row-amt" data-amount-pap="${s.id}" value="${isPaid ? paidAmt : ''}" placeholder="${data.papeleria.fee}" ${isPaid ? '' : 'disabled'} min="0" step="0.01">
+              <span class="fs-toggle ${isPaid ? 'paid' : ''}" style="${isPaid ? 'background:#8B5CF6;' : ''}" data-toggle-pap="${s.id}">${isPaid ? '✓' : ''}</span>
+            ` : `
+              <div style="font-weight:700; font-size:13.5px; min-width:60px; text-align:right;">${isPaid ? fmtMoney(paidAmt) : '—'}</div>
+              <span class="fs-toggle ${isPaid ? 'paid' : ''}" style="${isPaid ? 'background:#8B5CF6;' : ''} cursor:default;">${isPaid ? '✓' : ''}</span>
+            `}
+          </div>`;
+      });
+    }
+    const pct = data.students.length > 0 ? Math.round((papTotals.paidCount / data.students.length) * 100) : 0;
+    return `
+      <div class="fs-card">
+        <div class="fs-card-title">🎒 Cooperación de papelería <span class="fs-fund-pill papeleria">pago único</span></div>
+        <div class="fs-progress-summary">Recaudado: <strong>${fmtMoney(papTotals.collected)}</strong> de ${fmtMoney(papTotals.expected)} · ${papTotals.paidCount}/${data.students.length} alumnos</div>
+        <div class="fs-stat-bar" style="margin-bottom:14px;"><div class="fs-stat-bar-fill" style="width:${pct}%; background:#8B5CF6;"></div></div>
+        ${rows}
+      </div>`;
+  }
+
+  function renderGastosTab() {
+    let rows = '';
+    const sorted = [...data.expenses].sort((a,b) => (b.date||'').localeCompare(a.date||''));
+    if (sorted.length === 0) {
+      rows = '<div class="fs-empty-msg">No hay gastos registrados todavía.</div>';
+    } else {
+      sorted.forEach(e => {
+        const c = catMeta(e.category);
+        const fund = expenseFund(e);
+        rows += `
+          <div class="fs-list-row">
+            <div class="fs-crayon" style="background:${c.bg};">${c.icon}</div>
+            <div class="fs-row-main">
+              <div style="font-weight:600; font-size:13.8px;">${escapeHtml(e.desc)}</div>
+              <div class="fs-row-sub">${e.date || '—'} · <span class="fs-fund-pill ${fund}">${fund==='papeleria'?'Papelería':'Mensual'}</span></div>
+            </div>
+            <div style="font-weight:700; font-size:14px; color:#F0506E;">-${fmtMoney(e.amount)}</div>
+            ${isAdmin() ? `<button class="fs-del-x" data-del-expense="${e.id}" title="Eliminar">✕</button>` : ''}
+          </div>`;
+      });
+    }
+    return `
+      <div class="fs-card">
+        <div class="fs-card-title">💸 Gastos</div>
+        ${rows}
+        ${isAdmin() ? `
+        <div class="fs-add-form">
+          <input type="date" id="newExpenseDate" value="${new Date().toISOString().slice(0,10)}">
+          <input type="text" id="newExpenseDesc" placeholder="Concepto del gasto">
+          <select id="newExpenseCategory">${CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join('')}</select>
+          <select id="newExpenseFund">
+            <option value="monthly">Fondo mensual</option>
+            <option value="papeleria">Fondo papelería</option>
+          </select>
+          <input type="number" id="newExpenseAmount" placeholder="Monto" min="0" step="0.01">
+          <button class="fs-add-btn" id="addExpenseBtn">Agregar gasto</button>
+        </div>
+        ` : ''}
+      </div>`;
+  }
+
+  function renderHistoryModal() {
+    if (!historyStudentId) return '';
+    const s = data.students.find(st => st.id === historyStudentId);
+    if (!s) return '';
+    const months = data.payments[s.id] || {};
+    const sortedKeys = Object.keys(months).sort();
+    let rowsHtml = '';
+    let totalMonthly = 0;
+    if (sortedKeys.length === 0) {
+      rowsHtml = `<div class="fs-hist-row"><span>Mensualidades</span><span style="color:#8A8FA3;">Sin pagos</span></div>`;
+    } else {
+      sortedKeys.forEach(mk => {
+        const [y, m] = mk.split('-');
+        const d = new Date(Number(y), Number(m) - 1, 1);
+        totalMonthly += Number(months[mk]);
+        rowsHtml += `<div class="fs-hist-row"><span>${MESES[d.getMonth()]} ${y}</span><span>${fmtMoney(months[mk])}</span></div>`;
+      });
+    }
+    const papAmt = data.papeleria.paid[s.id];
+    const papPaid = papAmt !== undefined && papAmt !== null;
+    const total = totalMonthly + (papPaid ? Number(papAmt) : 0);
+    return `
+      <div class="fs-modal-overlay" id="historyOverlay">
+        <div class="fs-modal">
+          <div class="fs-modal-head">
+            <div>
+              <div class="fs-modal-title">Historial de pagos</div>
+              <div class="fs-modal-sub">${escapeHtml(s.name)}</div>
+            </div>
+            <button class="fs-modal-close" id="historyClose">✕</button>
+          </div>
+          <div class="fs-hist-section-label">Mensualidades</div>
+          ${rowsHtml}
+          <div class="fs-hist-section-label">Pago único</div>
+          <div class="fs-hist-row"><span>Cooperación de papelería</span><span>${papPaid ? fmtMoney(papAmt) : 'Pendiente'}</span></div>
+          <div class="fs-hist-total"><span>Total pagado</span><span>${fmtMoney(total)}</span></div>
+        </div>
+      </div>`;
+  }
+
+  function attachHandlers(mKey) {
+    root.querySelectorAll('[data-tab]').forEach(el => {
+      el.onclick = () => { currentTab = el.getAttribute('data-tab'); render(); };
+    });
+
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) logoutBtn.onclick = () => {
+      currentRole = null;
+      renderGate._showPassword = false;
+      loginError = '';
+      currentTab = 'resumen';
+      render();
+    };
+
+    const feeInput = document.getElementById('feeInput');
+    if (feeInput) feeInput.onchange = (e) => {
+      const v = parseFloat(e.target.value);
+      data.monthlyFee = isNaN(v) ? 0 : v;
+      saveData(); render();
+    };
+    const papFeeInput = document.getElementById('papFeeInput');
+    if (papFeeInput) papFeeInput.onchange = (e) => {
+      const v = parseFloat(e.target.value);
+      data.papeleria.fee = isNaN(v) ? 0 : v;
+      saveData(); render();
+    };
+    const adminPassInput = document.getElementById('adminPassInput');
+    if (adminPassInput) adminPassInput.onchange = (e) => {
+      const v = e.target.value.trim();
+      if (v) { data.adminPassword = v; saveData(); }
+    };
+
+    const exportBtn = document.getElementById('exportBtn');
+    if (exportBtn) exportBtn.onclick = exportToExcel;
+    const exportBtnTop = document.getElementById('exportBtnTop');
+    if (exportBtnTop) exportBtnTop.onclick = exportToExcel;
+
+    const prevBtn = document.getElementById('prevMonth');
+    if (prevBtn) prevBtn.onclick = () => { currentMonth.setMonth(currentMonth.getMonth() - 1); render(); };
+    const nextBtn = document.getElementById('nextMonth');
+    if (nextBtn) nextBtn.onclick = () => { currentMonth.setMonth(currentMonth.getMonth() + 1); render(); };
+
+    const addStudentBtn = document.getElementById('addStudentBtn');
+    if (addStudentBtn) addStudentBtn.onclick = addStudent;
+    const newStudentName = document.getElementById('newStudentName');
+    if (newStudentName) newStudentName.addEventListener('keydown', (e) => { if (e.key === 'Enter') addStudent(); });
+
+    const addExpenseBtn = document.getElementById('addExpenseBtn');
+    if (addExpenseBtn) addExpenseBtn.onclick = addExpense;
+
+    root.querySelectorAll('[data-toggle]').forEach(el => {
+      el.onclick = () => {
+        const sid = el.getAttribute('data-toggle');
+        if (!data.payments[sid]) data.payments[sid] = {};
+        if (data.payments[sid][mKey]) delete data.payments[sid][mKey];
+        else data.payments[sid][mKey] = data.monthlyFee;
+        saveData(); render();
+      };
+    });
+    root.querySelectorAll('[data-amount]').forEach(el => {
+      el.onchange = () => {
+        const sid = el.getAttribute('data-amount');
+        const v = parseFloat(el.value);
+        if (!data.payments[sid]) data.payments[sid] = {};
+        if (!isNaN(v)) { data.payments[sid][mKey] = v; saveData(); }
+      };
+    });
+    root.querySelectorAll('[data-toggle-pap]').forEach(el => {
+      el.onclick = () => {
+        const sid = el.getAttribute('data-toggle-pap');
+        if (data.papeleria.paid[sid] !== undefined) delete data.papeleria.paid[sid];
+        else data.papeleria.paid[sid] = data.papeleria.fee;
+        saveData(); render();
+      };
+    });
+    root.querySelectorAll('[data-amount-pap]').forEach(el => {
+      el.onchange = () => {
+        const sid = el.getAttribute('data-amount-pap');
+        const v = parseFloat(el.value);
+        if (!isNaN(v)) { data.papeleria.paid[sid] = v; saveData(); }
+      };
+    });
+    root.querySelectorAll('[data-del-student]').forEach(el => {
+      el.onclick = () => {
+        const sid = el.getAttribute('data-del-student');
+        if (!confirm('¿Eliminar a este alumno y su historial de pagos?')) return;
+        data.students = data.students.filter(s => s.id !== sid);
+        delete data.payments[sid];
+        delete data.papeleria.paid[sid];
+        saveData(); render();
+      };
+    });
+    root.querySelectorAll('[data-del-expense]').forEach(el => {
+      el.onclick = () => {
+        const eid = el.getAttribute('data-del-expense');
+        data.expenses = data.expenses.filter(e => e.id !== eid);
+        saveData(); render();
+      };
+    });
+    root.querySelectorAll('[data-history]').forEach(el => {
+      el.onclick = () => { historyStudentId = el.getAttribute('data-history'); render(); };
+    });
+
+    const overlay = document.getElementById('historyOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) { historyStudentId = null; render(); } });
+      document.getElementById('historyClose').onclick = () => { historyStudentId = null; render(); };
+    }
+  }
+
+  function addStudent() {
+    const input = document.getElementById('newStudentName');
+    const name = input.value.trim();
+    if (!name) return;
+    data.students.push({ id: uid(), name });
+    input.value = '';
+    saveData(); render();
+  }
+
+  function addExpense() {
+    const date = document.getElementById('newExpenseDate').value;
+    const desc = document.getElementById('newExpenseDesc').value.trim();
+    const category = document.getElementById('newExpenseCategory').value;
+    const fund = document.getElementById('newExpenseFund').value;
+    const amount = parseFloat(document.getElementById('newExpenseAmount').value);
+    if (!desc || isNaN(amount)) { alert('Escribe el concepto y el monto del gasto.'); return; }
+    data.expenses.push({ id: uid(), date, desc, category, fund, amount });
+    saveData(); render();
+  }
+
+  loadData();
+})();
+</script>
+</body>
+</html>
